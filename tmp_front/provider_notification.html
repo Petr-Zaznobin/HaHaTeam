@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Новый запрос студента</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --primary:#6366f1;
+    --bg:#f1f3f8;
+    --card:rgba(255,255,255,0.55);
+    --text:#111827;
+    --muted:#6b7280;
+    --radius:1.2rem;
+    --shadow:0 18px 40px rgba(0,0,0,.1);
+  }
+  body.dark{
+    --primary:#8b9cff;
+    --bg:#0f172a;
+    --card:rgba(255,255,255,0.08);
+    --text:#f1f5f9;
+    --muted:#94a3b8;
+    --shadow:0 18px 40px rgba(0,0,0,.35);
+  }
+  *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--text);transition:.4s background,.4s color;min-height:100vh;display:flex;flex-direction:column}
+  .glass{background:var(--card);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-radius:var(--radius);box-shadow:var(--shadow);}
+  .btn-primary{background:var(--primary);color:#fff;border:none;cursor:pointer;border-radius:.9rem;font-weight:500;padding:1rem 2rem;font-size:1rem;transition:.25s}
+  .btn-primary:hover{filter:brightness(.9)}
+  .toggle{display:flex;align-items:center;gap:.45rem;cursor:pointer;font-size:.85rem;color:var(--muted);user-select:none}
+  .toggle span{display:inline-block;width:36px;height:20px;background:var(--muted);border-radius:10px;position:relative;transition:.3s}
+  .toggle span:before{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;left:2px;transition:.3s}
+  body.dark .toggle span{background:var(--primary)}
+  body.dark .toggle span:before{transform:translateX(16px)}
+</style>
+<script>
+  const initTheme=()=>{document.body.classList.toggle('dark',localStorage.getItem('theme')==='dark');};
+  const switchTheme=()=>{const isDark=document.body.classList.toggle('dark');localStorage.setItem('theme',isDark?'dark':'light');};
+  window.addEventListener('DOMContentLoaded',initTheme);
+</script>
+
+<style>
+  body{justify-content:center;align-items:center}
+  .note{max-width:660px;width:100%;padding:2.2rem 2.4rem}
+  .note h2{font-size:1.65rem;font-weight:600;margin-bottom:1.1rem}
+  .details{font-size:.98rem;line-height:1.68;margin-bottom:1.9rem;color:var(--muted)}
+  .meta{font-size:.82rem;color:var(--muted);margin-top:1.2rem}
+</style>
+</head>
+<body>
+<section class="glass note">
+  <h2>Новый потенциальный студент ✨</h2>
+  <p class="details"><strong>Запрос:</strong> «нужен репетитор по матану срочно»<br><strong>Дедлайн:</strong> начать в течение 24 часов<br><strong>Курс:</strong> 2 курс, подготовка к экзамену<br><strong>Ожидание:</strong> 3×2‑часовых занятия + практика</p>
+  <button class="btn-primary">Ответить студенту</button>
+  <p class="meta">Отправлено: 19 апреля 2025, 14:06</p>
+</section>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Кабинет исполнителя</title>
+  
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --primary:#6366f1;
+    --bg:#f1f3f8;
+    --card:rgba(255,255,255,0.55);
+    --text:#111827;
+    --muted:#6b7280;
+    --radius:1.2rem;
+    --shadow:0 18px 40px rgba(0,0,0,.1);
+  }
+  body.dark{
+    --primary:#8b9cff;
+    --bg:#0f172a;
+    --card:rgba(255,255,255,0.08);
+    --text:#f1f5f9;
+    --muted:#94a3b8;
+    --shadow:0 18px 40px rgba(0,0,0,.35);
+  }
+  *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--text);transition:.4s background,.4s color;min-height:100vh;display:flex;flex-direction:column}
+  .glass{background:var(--card);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%);border-radius:var(--radius);box-shadow:var(--shadow);}
+  .btn-primary{background:var(--primary);color:#fff;border:none;cursor:pointer;border-radius:.9rem;font-weight:500;padding:1rem 2rem;font-size:1rem;transition:.25s}
+  .btn-primary:hover{filter:brightness(.9)}
+  .toggle{display:flex;align-items:center;gap:.45rem;cursor:pointer;font-size:.85rem;color:var(--muted);user-select:none}
+  .toggle span{display:inline-block;width:36px;height:20px;background:var(--muted);border-radius:10px;position:relative;transition:.3s}
+  .toggle span:before{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:2px;left:2px;transition:.3s}
+  body.dark .toggle span{background:var(--primary)}
+  body.dark .toggle span:before{transform:translateX(16px)}
+</style>
+<script>
+  const initTheme=()=>{document.body.classList.toggle('dark',localStorage.getItem('theme')==='dark');};
+  const switchTheme=()=>{const isDark=document.body.classList.toggle('dark');localStorage.setItem('theme',isDark?'dark':'light');};
+  window.addEventListener('DOMContentLoaded',initTheme);
+</script>
+
+  <style>
+    header{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 2rem;backdrop-filter:blur(12px)}
+    header h1{font-size:1.55rem;font-weight:600}
+    nav{display:flex;gap:1rem;justify-content:center;background:rgba(255,255,255,.45);backdrop-filter:blur(14px);padding:.9rem 1rem}
+    nav a{text-decoration:none;font-weight:500;color:var(--text);opacity:.8;transition:.25s}
+    nav a:hover{opacity:1}
+    main{max-width:1180px;margin:2rem auto;padding:0 1rem;flex:1;width:100%}
+    h2{font-size:1.3rem;font-weight:600;margin-bottom:1rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+    .card.hover{padding:1.8rem 1.6rem;transition:transform .3s ease;display:flex;flex-direction:column}
+    .card.hover:hover{transform:translateY(-10px)}
+    .card h3{font-size:1.12rem;font-weight:600;margin-bottom:.55rem}
+    .card button{margin-top:auto}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Кабинет исполнителя</h1>
+  <label class="toggle" onclick="switchTheme()"><span></span></label>
+</header>
+<nav>
+  <a href="#requests">Запросы</a>
+  <a href="#schedule">Расписание</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#profile">Профиль</a>
+</nav>
+<main>
+  <section id="requests">
+    <h2>Новые запросы</h2>
+    <div class="grid">
+      <article class="glass card hover">
+        <h3>2 курс, матанализ</h3>
+        <p>Интенсив за 5 дней до экзамена.</p>
+        <button class="btn-primary">Откликнуться</button>
+      </article>
+      <article class="glass card hover">
+        <h3>1 курс, линал</h3>
+        <p>Разбор задач из домашнего задания.</p>
+        <button class="btn-primary">Откликнуться</button>
+      </article>
+    </div>
+  </section>
+  <section id="schedule" style="margin-top:3rem">
+    <h2>Ваше расписание на сегодня</h2>
+    <div class="grid">
+      <article class="glass card hover">
+        <h3>14:00 – 15:30</h3>
+        <p>Иван, матанализ, очно</p>
+      </article>
+      <article class="glass card hover">
+        <h3>17:00 – 18:30</h3>
+        <p>Онлайн‑курс «Матан без боли» — вебинар</p>
+      </article>
+    </div>
+  </section>
+</main>
+</body>
+</html>
