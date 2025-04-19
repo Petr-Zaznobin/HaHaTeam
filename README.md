@@ -4,3 +4,5 @@
 
 ![telegram-cloud-photo-size-2-5197414863935240859-y](https://github.com/user-attachments/assets/f658c8a5-99b2-4fd3-b8f6-a6fafdeecaa7)
 
+ID берутся из файла базы знаний lab_reports_varied_subjects.pdf
+
