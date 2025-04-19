@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --bg: #f3f4f6;
+    --card: #fff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --radius: 1rem;
+    --shadow: 0 8px 24px rgba(0,0,0,.06);
+    --transition: .25s ease;
+}
+
+.card {
+    @apply bg-card rounded-[var(--radius)] p-6 shadow-[var(--shadow)] transition-[transform];
+}
+
+.card:hover {
+    @apply -translate-y-1.5;
+}
+
+.btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-[var(--radius)] font-medium transition-colors;
+}
+
+.btn-primary:hover {
+    @apply bg-primary-dark;
+}
